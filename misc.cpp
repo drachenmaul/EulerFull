@@ -24,20 +24,12 @@ double PASTRI(int ROW,int POS){
 	double **triangle;
 	int i,j;
 	double ret;
-	if((triangle=malloc(ROW*sizeof(double*)))==NULL){
-		printf("PASTRI out of Memory");
-		return -1;
-	}
+	triangle = new double*[ROW];
+	//TODO: Catch new allocation failure
 	for(i=0;i<ROW;i++){
-		if((triangle[i]=malloc((i+1)*sizeof(double)))==NULL){
-			printf("PASTRI out of Memory!\n");
-			for(i--;i>=0;i--){
-				free(triangle[i]);
-			}
-			free(triangle);
-			return -1;
-		}
+		triangle[i]=new double[i+1];
 	}
+	//TODO: Catch new allocation failure
 	triangle[0][0]=1;
 	for(i=1;i<ROW;i++){
 		triangle[i][0]=1;
@@ -48,9 +40,9 @@ double PASTRI(int ROW,int POS){
 	}
 	ret=triangle[ROW-1][POS-1];
 	for(i=0;i<ROW;i++){
-		free(triangle[i]);
+		delete triangle[i];
 	}
-	free(triangle);
+	delete(triangle);
 
 	return ret;
 }
@@ -153,10 +145,8 @@ int ISBINARYPALINDROM(int ZAHL){
 	lang=100000;
 	if(ZAHL==0)
 		return 0;
-	if((data=calloc(lang,sizeof(int)))==NULL){
-		printf("Out of Memory!\n");
-		return -1;
-	}
+	data = new int[lang]();
+	//TODO: Catch new allocation failure
 	data[0]=ZAHL;
 	used=1;
 	for(i=0;1;i++){
@@ -231,10 +221,8 @@ int* WRITEINARRAY(int INPUT){
 	int i;
 	int tmp;
 	length=GETLENGTH(INPUT);
-	if((ret=malloc(length*sizeof(int)))==NULL){
-		printf("Out of Memory!\n");
-		return NULL;
-	}
+	ret = new int[length];
+	//TODO: Catch new allocation failure
 	ret[0]=INPUT;
 	for(i=0;i<length-1;i++){
 		tmp=ret[i]/10;
@@ -272,10 +260,8 @@ int ISPALINDROM(int NUMBER){
 	length=GETLENGTH(NUMBER);
 	if(length==1)
 		return 1;
-	if((look=malloc(length*sizeof(int)))==NULL){
-		printf("Out of Memory!\n");
-		return -1;
-	}
+	look = new int[length];
+	//TODO: Catch new allocation failure
 	look[0]=NUMBER;
 	for(i=0;i<length-1;i++){
 		tmp=look[i]/10;

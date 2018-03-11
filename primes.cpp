@@ -5,7 +5,7 @@
 
 int TRUNCATABLE(int prim){
 	int i,tmp,l;
-	for(l=0,tmp=prim;tmp!=0;tmp/=10,l++); //bestimme länge der zahl
+	for(l=0,tmp=prim;tmp!=0;tmp/=10,l++); //bestimme lï¿½nge der zahl
 
 	//Teste auf wegnehmen von rechter Seite
 
@@ -34,10 +34,8 @@ void MAKEPRIMELISTSIEVE(){
 	FILE* datei;
 	char *prime;
 	int limit=100000000;
-	if((prime=malloc(limit*sizeof(char)))==NULL){
-		printf("MAKEPRIMELISTSIEVE out of Memory!\n");
-		return;
-	}
+	prime = new char[limit];
+	//TODO: Catch new allocation failure
 	prime[0]=0;
 	prime[1]=0;
 	for(i=2;i<limit;i++){
@@ -74,10 +72,8 @@ int* SIZEDPRIMEARRAY(int n){
 	int* prime;
 	FILE* datei;
 	int i;
-	if((prime=malloc(SIZE*sizeof(int)))==NULL){
-		printf("PRIMEARRAY out of Memory\n");
-		return NULL;
-	}
+	prime = new int[SIZE];
+	//TODO: Catch new allocation failure
 	if((datei=fopen("primelist.txt","r"))==NULL){
 		printf("Keine Primzahlenliste gefunden, wird erstellt, einen Moment bitte.\n");
 		MAKEPRIMELISTSIEVE();
@@ -100,10 +96,8 @@ int* PRIMEARRAY(){
 	int* prime;
 	FILE* datei;
 	int i;
-	if((prime=malloc(SIZE*sizeof(int)))==NULL){
-		printf("PRIMEARRAY out of Memory\n");
-		return NULL;
-	}
+	prime = new int[SIZE];
+	//TODO: Catch new allocation failure
 	if((datei=fopen("primelist.txt","r"))==NULL){
 		printf("Keine Primzahlenliste gefunden, wird erstellt, einen Moment bitte.\n");
 		MAKEPRIMELISTSIEVE();
@@ -249,7 +243,7 @@ int PRIMENUMBER(unsigned long long PRIME){
 
 
 
-int GETPRIME(int NUMBER){
+unsigned GETPRIME(int NUMBER){
 	int x=3;
 	int n=2;
 	int k=2;
@@ -281,7 +275,7 @@ int GETPRIME(int NUMBER){
 }
 
 
-int GETNEXTPRIME(int NUMBER){
+unsigned GETNEXTPRIME(int NUMBER){
 	int x=NUMBER+1;
 	int n=2;
 	int k=0;
@@ -312,7 +306,7 @@ int GETNEXTPRIME(int NUMBER){
 
 
 
-int GETPREVPRIME(int NUMBER){
+unsigned GETPREVPRIME(int NUMBER){
 	int x=NUMBER-1;
 	int n=2;
 	int k=0;

@@ -89,7 +89,7 @@ void BIGINTRESET(BIGINT *INPUT,long long STARTWERT){
 
 
 void BIGINTSET(BIGINT *INPUT,long long STARTWERT){
-	INPUT->data=calloc(10000,sizeof(int));
+	INPUT->data=new int[10000]();
 	INPUT->data[0]=STARTWERT;
 	INPUT->lange=10000;
 	INPUT->used=1;
@@ -105,10 +105,10 @@ void BIGINTREALIGN(BIGINT *INPUT){
 		if(INPUT->data[i]>9){
 			zwischenwert=INPUT->data[i]/10;
 			if(INPUT->lange<i+2){
-				if((INPUT->data=realloc(INPUT->data,10*INPUT->lange*sizeof(int)))==NULL){
+				/*TODO: if((INPUT->data=realloc(INPUT->data,10*INPUT->lange*sizeof(int)))==NULL){
 					printf("BIGINTREALIGN out of Memory!");
 					return;
-				}
+				}*/
 				for(j=INPUT->lange;j<INPUT->lange*10;j++){
 					INPUT->data[j]=0;
 				}

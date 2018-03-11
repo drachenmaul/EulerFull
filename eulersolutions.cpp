@@ -16,7 +16,7 @@ void euler1(){
 	/*Find the sum of all the multiples of 3 or 5 below 1000.*/
 	int i;
 	int result;
-	/*Diese Schleife schaut für alle Zahlen unter 1000 ob sie restlos durch 3 oder 5 teilbar sind.
+	/*Diese Schleife schaut fï¿½r alle Zahlen unter 1000 ob sie restlos durch 3 oder 5 teilbar sind.
 	 * Wenn ja wird die aktuelle Zahl auf das Ergebniss addiert.*/
 	for(i=0,result=0;i<1000;i++){
 		if(i%5==0||i%3==0)
@@ -63,7 +63,7 @@ void euler3(){
 	int i=1;
 	int a[10001]={2};
 	/*Extrem ineffizienter Code der sich erst alle Primzahlen bis 10001 in ein Array schreibt
-	 * und dann von der größten bis zur kleinsten Primzahl durchprüft ob die große zahl
+	 * und dann von der grï¿½ï¿½ten bis zur kleinsten Primzahl durchprï¿½ft ob die groï¿½e zahl
 	 * restlos teilbar ist, wenn sie restlos teilbar ist wird sie geteilt und der faktor ausgegeben.*/
 	while(k<10001){
 			if(x%n==0){
@@ -102,9 +102,9 @@ void euler4(){
 	int i,j;
 	int currentpal,largestpal;
 	
-	/*Die Schleife schaut für jedes mögliche Produkt aus 3-stelligen Zahlen ob es ein pallindrom ist
-	 *wenn ja, schaut sie ob das aktuelle Palindrom größer ist als das aktuell Größte, wenn ja
-	 *wird das größte neu definiert.*/
+	/*Die Schleife schaut fï¿½r jedes mï¿½gliche Produkt aus 3-stelligen Zahlen ob es ein pallindrom ist
+	 *wenn ja, schaut sie ob das aktuelle Palindrom grï¿½ï¿½er ist als das aktuell Grï¿½ï¿½te, wenn ja
+	 *wird das grï¿½ï¿½te neu definiert.*/
 	for(currentpal=0,largestpal=0,i=100;i<1000;i++){
 		for(j=100;j<1000;j++){
 			currentpal=i*j;
@@ -124,7 +124,7 @@ void euler5(){
 	long ziel=1;
 	int i=1;
 	
-	/*Die Schleife testet für alle Zahlen ob sie durch die Zahlen 1-20 restlos teilbar sind, findet es die erste solche Zahl
+	/*Die Schleife testet fï¿½r alle Zahlen ob sie durch die Zahlen 1-20 restlos teilbar sind, findet es die erste solche Zahl
 	 * bricht sie ab und das Ergebniss wird ausgegeben.*/
 	
 	while(i<21){
@@ -271,8 +271,8 @@ Find the sum of all the primes below two million.*/
 	int k=0;
 	int c=0;
 	int result=2;
-	/*Primzahlen ausrechnen und aufaddieren, könnte kürzer sein
-	 * unter verwendung meiner später Entstandenen Bibleothek*/
+	/*Primzahlen ausrechnen und aufaddieren, kï¿½nnte kï¿½rzer sein
+	 * unter verwendung meiner spï¿½ter Entstandenen Bibleothek*/
 	
 	while(c==0){
 			if(x%n==0){
@@ -303,7 +303,7 @@ Find the sum of all the primes below two million.*/
 
 
 void euler11(){
-	/*In the 20×20 grid below, four numbers along a diagonal line have been marked in red.
+	/*In the 20ï¿½20 grid below, four numbers along a diagonal line have been marked in red.
 
 08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
@@ -326,9 +326,9 @@ void euler11(){
 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
 
-The product of these numbers is 26 × 63 × 78 × 14 = 1788696.
+The product of these numbers is 26 ï¿½ 63 ï¿½ 78 ï¿½ 14 = 1788696.
 
-What is the greatest product of four adjacent numbers in any direction (up, down, left, right, or diagonally) in the 20×20 grid?
+What is the greatest product of four adjacent numbers in any direction (up, down, left, right, or diagonally) in the 20ï¿½20 grid?
 	 * */
 	FILE* datei;
 	
@@ -339,27 +339,19 @@ What is the greatest product of four adjacent numbers in any direction (up, down
 	int gproduct;
 	
 	/*Grid wird zuerst aus einer Datei in eine Matrixanordnung geschrieben, danach werden zuerst
-	 * alle horizontale möglichkeiten, dann alle vertikalen, dann diagonal rechtsoben nach links unten
-	 * und zuletzt diagonal linksoben nach rechts unten geprüft, am Ende das größte resultat ausgegeben*/
+	 * alle horizontale mï¿½glichkeiten, dann alle vertikalen, dann diagonal rechtsoben nach links unten
+	 * und zuletzt diagonal linksoben nach rechts unten geprï¿½ft, am Ende das grï¿½ï¿½te resultat ausgegeben*/
 	gridsize=20;
 	if((datei=fopen("prob11.txt","r"))==NULL){
 		printf("File not found!\n");
 		return;
 	}
-	if((grid=malloc(gridsize*sizeof(int*)))==NULL){
-		printf("Out of Memorey!\n");
-		return;
-	}
+	grid = new int*[gridsize];
+	//TODO: Catch new allocation failure
 	for(i=0;i<gridsize;i++){
-		if((grid[i]=malloc(gridsize*sizeof(int)))==NULL){
-			printf("Out of Memory!\n");
-			i--;
-			for(;i>-1;i--){
-				free(grid[i]);
-			}
-			free(grid);
-		}
+		grid[i]= new int[gridsize];
 	}
+	//TODO: Catch new allocation failure
 	for(i=0;i<gridsize;i++){
 		for(j=0;j<gridsize;j++){
 			fscanf(datei,"%i",&grid[i][j]);
@@ -419,7 +411,7 @@ void euler12(){
 	int i;
 	int j;
 	
-	/*Nummer erhöhen, gucken wieviele Teiler und das ganze bis ich gefunden hab was ich suche*/
+	/*Nummer erhï¿½hen, gucken wieviele Teiler und das ganze bis ich gefunden hab was ich suche*/
 	for(i=1,triangle=0,divisors=0;divisors<501;i++){
 		triangle+=i;
 		for(divisors=1,j=1;j<sqrt(triangle)+1;j++){
@@ -542,7 +534,7 @@ void euler13(){
 	FILE* datei;
 
 	
-	/*Datei öffnen, die zahlen in ein BIGINT schreiben und aufaddieren,
+	/*Datei ï¿½ffnen, die zahlen in ein BIGINT schreiben und aufaddieren,
 	 * printen lassen und ersten 10 Zahlen ablesen*/
 	datei=fopen("50digitnumbers.txt","r");
 	BIGINTSET(&a,0);
@@ -583,7 +575,7 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 	unsigned long n=1;
 	datei=fopen("result.txt","w");
 	
-	/*Schleife zur bestimmung der Kettenlänge, ziemlich offensichtlich*/
+	/*Schleife zur bestimmung der Kettenlï¿½nge, ziemlich offensichtlich*/
 	while(n<1000001){
 		if(rechenwert==1){
 			fprintf(datei,"Kettenlaenge fuer %lu ist %lu!\n",n,lang);
@@ -643,7 +635,7 @@ What is the sum of the digits of the number 2^1000?
 	int sum;
 	
 	
-	/*Nutze meine Custom BIGINT Bib, für Infos BIGINT BIB schauen*/
+	/*Nutze meine Custom BIGINT Bib, fï¿½r Infos BIGINT BIB schauen*/
 	BIGINTSET(&a,2);
 	BIGINTPOWER(&a,1000);
 	sum=BIGINTDIGITSUM(a);
@@ -660,16 +652,15 @@ void euler18(){
 	FILE *datei;
 	
 	
-	/*Als erstes Textfile checken und alle 09 durch 9 und alle 08 durch 8 ersetzen (Oktazahlen) Pyramide allokieren und Werte anfüllen, anschließend
-	 * arbeitet sich das Programm von unten an die Spitze der Pyramide indem es guckt welcher von 2 nebeneinanderstehenden Werten der größere ist
-	 * und diesen dann auf den Wert in der Zeile darüber addiert. Dies wird wiederholt bis in der Spitze der Pyramide das Ergebniss steht.*/
-	if((triangle=malloc(rows*sizeof(int*)))==NULL){
-		printf("Out of Memory!\n");
-		return;
-	}
+	/*Als erstes Textfile checken und alle 09 durch 9 und alle 08 durch 8 ersetzen (Oktazahlen) Pyramide allokieren und Werte anfï¿½llen, anschlieï¿½end
+	 * arbeitet sich das Programm von unten an die Spitze der Pyramide indem es guckt welcher von 2 nebeneinanderstehenden Werten der grï¿½ï¿½ere ist
+	 * und diesen dann auf den Wert in der Zeile darï¿½ber addiert. Dies wird wiederholt bis in der Spitze der Pyramide das Ergebniss steht.*/
+	triangle = new int*[rows];
+	//TODO: Catch new allocation failure
 	for(i=0;i<rows;i++){
-		triangle[i]=malloc((i+1)*sizeof(int));
+		triangle[i]=new int[i+1];
 	}
+	//TODO: Catch new allocation failure
 	if((datei=fopen("prob18.txt","r"))==NULL){
 		printf("Datei nicht zu oeffnen!\n");
 		return;
@@ -705,9 +696,9 @@ void euler19(){
 
 
 void euler20(){
-	/*n! means n × (n - 1) × ... × 3 × 2 × 1
+	/*n! means n ï¿½ (n - 1) ï¿½ ... ï¿½ 3 ï¿½ 2 ï¿½ 1
 
-For example, 10! = 10 × 9 × ... × 3 × 2 × 1 = 3628800,
+For example, 10! = 10 ï¿½ 9 ï¿½ ... ï¿½ 3 ï¿½ 2 ï¿½ 1 = 3628800,
 and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.
 
 Find the sum of the digits in the number 100!
@@ -762,7 +753,8 @@ void euler23(){
 		}
 	}
 
-	abundantnbrs=malloc(count*sizeof(int));
+	abundantnbrs= new int[count];
+	//TODO: Catch new allocation failure
 	for(i=0,j=0;i<28124;i++){
 		if(abundant(i)){
 			abundantnbrs[j]=i;
@@ -798,7 +790,7 @@ void euler25(){
 	int i;
 	
 	/*BIGINTs die Fibonacciwerte ausrechnen sich abwechselnd aufaddieren und
-	 * wenn die genutzte länge 1000 knackt das Ergebniss ausgibt.*/
+	 * wenn die genutzte lï¿½nge 1000 knackt das Ergebniss ausgibt.*/
 	BIGINTSET(&a,1);
 	BIGINTSET(&b,1);
 	for(i=2;a.used!=1000&&b.used!=1000;){
@@ -828,15 +820,15 @@ void euler25(){
 void euler27(){
 	/*Euler published the remarkable quadratic formula:
 
- n² + n + 41
+ nï¿½ + n + 41
 
-It turns out that the formula will produce 40 primes for the consecutive values n = 0 to 39. However, when n = 40, 402 + 40 + 41 = 40(40 + 1) + 41 is divisible by 41, and certainly when n = 41, 41² + 41 + 41 is clearly divisible by 41.
+It turns out that the formula will produce 40 primes for the consecutive values n = 0 to 39. However, when n = 40, 402 + 40 + 41 = 40(40 + 1) + 41 is divisible by 41, and certainly when n = 41, 41ï¿½ + 41 + 41 is clearly divisible by 41.
 
-Using computers, the incredible formula  n² - 79n + 1601 was discovered, which produces 80 primes for the consecutive values n = 0 to 79. The product of the coefficients, -79 and 1601, is -126479.
+Using computers, the incredible formula  nï¿½ - 79n + 1601 was discovered, which produces 80 primes for the consecutive values n = 0 to 79. The product of the coefficients, -79 and 1601, is -126479.
 
 Considering quadratics of the form:
 
-    n² + an + b, where |a| < 1000 and |b| < 1000
+    nï¿½ + an + b, where |a| < 1000 and |b| < 1000
 
     where |n| is the modulus/absolute value of n
     e.g. |11| = 11 and |-4| = 4
@@ -887,7 +879,7 @@ What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed 
 	int sum;
 	int summand;
 	
-	/*Per Hand hergeileitet, Grenze Ergibt sich aus Gridgröße(ungerade)+1 geteilt durch 2*/
+	/*Per Hand hergeileitet, Grenze Ergibt sich aus Gridgrï¿½ï¿½e(ungerade)+1 geteilt durch 2*/
 	for(sum=1,summand=1,i=1;i<501;i++){
 		for(j=0;j<4;j++){
 			if(j<4)
@@ -930,7 +922,7 @@ Find the sum of all the numbers that can be written as the sum of fifth powers o
 	int element[10];
 	int tmp;
 	
-	/*Hier wird die aktuell betrachtete Zahl zuerst in ein Array geschrieben und anschließend jedes
+	/*Hier wird die aktuell betrachtete Zahl zuerst in ein Array geschrieben und anschlieï¿½end jedes
 	 * Element ^5 genommen aufaddiert geschaut ob es die Ursprungszahl ergibt und wenn ja aufs
 	 * Ergebniss drauf addiert*/
 	for(sum=0,current=2;current<max;current++){
@@ -954,11 +946,11 @@ Find the sum of all the numbers that can be written as the sum of fifth powers o
 
 
 void euler31(){/*
-	In England the currency is made up of pound, £, and pence, p, and there are eight coins in general circulation:
-	    1p, 2p, 5p, 10p, 20p, 50p, £1 (100p) and £2 (200p).
-	It is possible to make £2 in the following way:
-	    1×£1 + 1×50p + 2×20p + 1×5p + 1×2p + 3×1p
-	How many different ways can £2 be made using any number of coins?*/
+	In England the currency is made up of pound, ï¿½, and pence, p, and there are eight coins in general circulation:
+	    1p, 2p, 5p, 10p, 20p, 50p, ï¿½1 (100p) and ï¿½2 (200p).
+	It is possible to make ï¿½2 in the following way:
+	    1×£1 + 1ï¿½50p + 2ï¿½20p + 1ï¿½5p + 1ï¿½2p + 3ï¿½1p
+	How many different ways can ï¿½2 be made using any number of coins?*/
 	
 	int a,b,c,d,e,f,g;
 	unsigned long long count;
@@ -992,8 +984,8 @@ Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 	int facsum;
 	int *array;
 	
-	/*Gucke wie lang Zahl ist, schreibe Zahl in array, bilde die Fakultäten der einzelnen Array einträge
-	 * addiere die Fakultäten und schaue nach ob die Ursprungszahl rauskommt
+	/*Gucke wie lang Zahl ist, schreibe Zahl in array, bilde die Fakultï¿½ten der einzelnen Array eintrï¿½ge
+	 * addiere die Fakultï¿½ten und schaue nach ob die Ursprungszahl rauskommt
 	 * wenn ja aufs gesamtergebniss addieren*/
 	for(i=3,sum=0;i<max;i++){
 		lang=GETLENGTH(i);
@@ -1029,10 +1021,10 @@ How many circular primes are there below one million?
 	int check;
 	
 	
-	/*Schnappe prime rotiere sie sooft wie sie lang ist, wenn die Rotation zurück gibt, dass eine 0 führend ist
-	 * brich ab und mach mit der nächsten Prime weiter, ansonsten wird geschaut ist es ne prime, wenn alle rotationen
-	 * prime sind wird der circularprimecount um 1 erhöht.
-	 * Was lernen wir: Führende Nullen sind mal wieder sehr ätzend*/
+	/*Schnappe prime rotiere sie sooft wie sie lang ist, wenn die Rotation zurï¿½ck gibt, dass eine 0 fï¿½hrend ist
+	 * brich ab und mach mit der nï¿½chsten Prime weiter, ansonsten wird geschaut ist es ne prime, wenn alle rotationen
+	 * prime sind wird der circularprimecount um 1 erhï¿½ht.
+	 * Was lernen wir: Fï¿½hrende Nullen sind mal wieder sehr ï¿½tzend*/
 	prime=PRIMEARRAY();
 	for(i=0,circprimecount=0;prime[i]<1000000;i++){
 		circ=prime[i];
@@ -1144,8 +1136,8 @@ What is the largest n-digit pandigital prime that exists?
 	int pand;
 	int gpand;
 	
-	/*Die Funktion ISPANDIGITAL prüft ob die Nummer pandigital ist, sie wird mit Primzahlen gefüttert, am Ende wird verglichen und die größte Ausgegeben.
-	 * Wichtig ist es zu erkennen, dass es keine 8,9 und 10 stelligen pandigitalen Primzahlen geben kann, da diese immer durch 3 Teilbar wäre (Summe 1-8/9/10 ist durch 3 teilbar)*/
+	/*Die Funktion ISPANDIGITAL prï¿½ft ob die Nummer pandigital ist, sie wird mit Primzahlen gefï¿½ttert, am Ende wird verglichen und die grï¿½ï¿½te Ausgegeben.
+	 * Wichtig ist es zu erkennen, dass es keine 8,9 und 10 stelligen pandigitalen Primzahlen geben kann, da diese immer durch 3 Teilbar wï¿½re (Summe 1-8/9/10 ist durch 3 teilbar)*/
 	for(gpand=0,pand=1;prime<10000000;prime=GETNEXTPRIME(prime)){
 		if(ISPANDIGITAL(prime)==1)
 			pand=prime;
@@ -1158,7 +1150,7 @@ What is the largest n-digit pandigital prime that exists?
 }
 
 void euler42(){
-	/*The n_th term of the sequence of triangle numbers is given by, tn = ½n(n+1); so the first ten triangle numbers are:
+	/*The n_th term of the sequence of triangle numbers is given by, tn = ï¿½n(n+1); so the first ten triangle numbers are:
 
 1, 3, 6, 10, 15, 21, 28, 36, 45, 55, ...
 
@@ -1176,7 +1168,7 @@ By converting each letter in a word to a number corresponding to its alphabetica
 	int wordvalue;
 	
 	/*Idee wie folgt, ich lese aus der Datei und gucke ob mein eingelesener Wert zwischen A und Z liegt, falls ich auf
-	 * ein Komma treffe, schaue ich nach ob der Wortwert eine Triangle-Number ist, wenn ja erhöhe ich den Zähler*/
+	 * ein Komma treffe, schaue ich nach ob der Wortwert eine Triangle-Number ist, wenn ja erhï¿½he ich den Zï¿½hler*/
 	datei=fopen("words.txt","r");
 	for(wordvalue=0,count=0;(fscanf(datei,"%c",&word))!=EOF;){
 		if(word>64&&word<91){
@@ -1231,12 +1223,12 @@ void euler46(){
 /*
 	It was proposed by Christian Goldbach that every odd composite number can be written as the sum of a prime and twice a square.
 
-	9 = 7 + 2×1^2
-	15 = 7 + 2×2^2
-	21 = 3 + 2×3^2
-	25 = 7 + 2×3^2
-	27 = 19 + 2×2^2
-	33 = 31 + 2×1^2
+	9 = 7 + 2ï¿½1^2
+	15 = 7 + 2ï¿½2^2
+	21 = 3 + 2ï¿½3^2
+	25 = 7 + 2ï¿½3^2
+	27 = 19 + 2ï¿½2^2
+	33 = 31 + 2ï¿½1^2
 
 	It turns out that the conjecture was false.
 
@@ -1254,7 +1246,7 @@ void euler46(){
 		}
 	}
 
-	printf("Erster Fehlschlag bei %d\n",test-2); //test-2 da letzte inkrementierung der for schleife rückgängig gemachtw erden muss
+	printf("Erster Fehlschlag bei %d\n",test-2); //test-2 da letzte inkrementierung der for schleife rï¿½ckgï¿½ngig gemachtw erden muss
 }
 
 void euler48(){
@@ -1325,7 +1317,7 @@ Find the smallest positive integer, x, such that 2x, 3x, 4x, 5x, and 6x, contain
 	
 	int number;
 	
-	/*Nicht wirklich was zu sagen, schaue nach obs für doppelt stimmt, wenn ja für dreifach etc.*/
+	/*Nicht wirklich was zu sagen, schaue nach obs fï¿½r doppelt stimmt, wenn ja fï¿½r dreifach etc.*/
 	for(number=1;1;number++){
 		if(SAMEDIGITS(number,2*number))
 			if(SAMEDIGITS(number,3*number))
@@ -1386,7 +1378,7 @@ void euler56(){
 	int sum;
 	int maxsum;
 	
-	/*Und wieder BIGINTs, Wert ausrechnen, Ziffern addieren, vergleichen und am Ende das größte Ausgeben.*/
+	/*Und wieder BIGINTs, Wert ausrechnen, Ziffern addieren, vergleichen und am Ende das grï¿½ï¿½te Ausgeben.*/
 	for(maxsum=0,a=2;a<100;a++){
 		for(sum=0,b=2;b<100;b++){
 			BIGINTSET(&k,a);
@@ -1428,16 +1420,15 @@ void euler67(){
 	FILE *datei;
 	
 	
-	/*Als erstes Textfile checken und alle 09 durch 9 und alle 08 durch 8 ersetzen (Oktazahlen) Pyramide allokieren und Werte anfüllen, anschließend
-	 * arbeitet sich das Programm von unten an die Spitze der Pyramide indem es guckt welcher von 2 nebeneinanderstehenden Werten der größere ist
-	 * und diesen dann auf den Wert in der Zeile darüber addiert. Dies wird wiederholt bis in der Spitze der Pyramide das Ergebniss steht.*/
-	if((triangle=malloc(rows*sizeof(int*)))==NULL){
-		printf("Out of Memory!\n");
-		return;
-	}
+	/*Als erstes Textfile checken und alle 09 durch 9 und alle 08 durch 8 ersetzen (Oktazahlen) Pyramide allokieren und Werte anfï¿½llen, anschlieï¿½end
+	 * arbeitet sich das Programm von unten an die Spitze der Pyramide indem es guckt welcher von 2 nebeneinanderstehenden Werten der grï¿½ï¿½ere ist
+	 * und diesen dann auf den Wert in der Zeile darï¿½ber addiert. Dies wird wiederholt bis in der Spitze der Pyramide das Ergebniss steht.*/
+	triangle = new int*[rows];
+	//TODO: Catch new allocation failure
 	for(i=0;i<rows;i++){
-		triangle[i]=malloc((i+1)*sizeof(int));
+		triangle[i]=new int[i+1];
 	}
+	//TODO: Catch new allocation failure
 	if((datei=fopen("prob67.txt","r"))==NULL){
 		printf("Datei nicht zu oeffnen!\n");
 		return;
@@ -1475,7 +1466,7 @@ void euler67(){
 void euler97(){
 	/*The first known prime found to exceed one million digits was discovered in 1999, and is a Mersenne prime of the form 2^6972593-1; it contains exactly 2,098,960 digits. Subsequently other Mersenne primes, of the form 2^p-1, have been found which contain more digits.
 
-However, in 2004 there was found a massive non-Mersenne prime which contains 2,357,207 digits: 28433×2^7830457+1.
+However, in 2004 there was found a massive non-Mersenne prime which contains 2,357,207 digits: 28433ï¿½2^7830457+1.
 
 Find the last ten digits of this prime number.
 	 * */
@@ -1529,7 +1520,7 @@ How many reversible numbers are there below one-billion (10^9)?
 
 
 void euler187(){
-	/*A composite is a number containing at least two prime factors. For example, 15 = 3 × 5; 9 = 3 × 3; 12 = 2 × 2 × 3.
+	/*A composite is a number containing at least two prime factors. For example, 15 = 3 ï¿½ 5; 9 = 3 ï¿½ 3; 12 = 2 ï¿½ 2 ï¿½ 3.
 
 There are ten composites below thirty containing precisely two,
 not necessarily distinct, prime factors: 4, 6, 9, 10, 14, 15, 21, 22, 25, 26.
