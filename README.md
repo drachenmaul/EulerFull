@@ -1,0 +1,2 @@
+# EulerFull
+Solutions for ProjectEuler
