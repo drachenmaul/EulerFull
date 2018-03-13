@@ -1,7 +1,7 @@
 #ifndef PRIMES_H
 #define PRIMES_H
 
-int TRUNCATABLE(int prim);
+bool TRUNCATABLE(int prim);
 unsigned GETPRIME(int NUMBER);
 unsigned GETNEXTPRIME(int NUMBER);
 unsigned GETPREVPRIME(int NUMBER);
@@ -10,7 +10,7 @@ int PRIMENUMBER(unsigned long long PRIME);
 int PRIMEFACTORS(unsigned long long NUMBER);
 void MAKEPRIMELIST();
 int GETPRIMELIST(int NUMBER);
-int ISPRIME(int NUMBER);
+bool ISPRIME(int NUMBER);
 int* PRIMEARRAY();
 int* SIZEDPRIMEARRAY(int n);
 void MAKEPRIMELISTSIEVE();

@@ -6,6 +6,10 @@
 using namespace std;
 
 
+
+//Next Problems:  47, 49, 50, 58, 63, 81
+
+
 int main(){
 	double start,stopp;
 	start=clock();

@@ -1482,7 +1482,7 @@ How many starting numbers below ten million will arrive at 89?
  */
 
 
-	int i,j,anzahl,qsumme;
+	int i,anzahl,qsumme;
 
 
 

@@ -3,7 +3,7 @@
 #include<math.h>
 #include "primes.h"
 
-int TRUNCATABLE(int prim){
+bool TRUNCATABLE(int prim){
 	int i,tmp,l;
 	for(l=0,tmp=prim;tmp!=0;tmp/=10,l++); //bestimme l�nge der zahl
 
@@ -11,7 +11,7 @@ int TRUNCATABLE(int prim){
 
 	for(tmp=prim,i=0;i<l;i++,tmp/=10){
 		if(!ISPRIME(tmp))
-			return 0;
+			return false;
 	}
 
 	//Teste auf wegnehmen von linker Seite
@@ -19,13 +19,13 @@ int TRUNCATABLE(int prim){
 	int teiler;
 	for(teiler=pow(10,l-1),tmp=prim,i=0;i<l;i++,tmp%=teiler,teiler/=10){
 		if(!ISPRIME(tmp))
-			return 0;
+			return false;
 
 
 	}
 
 
-	return 1;
+	return true;
 }
 
 
@@ -153,18 +153,17 @@ int GETPRIMELIST(int NUMBER){
 }
 
 
-int ISPRIME(int NUMBER){
+bool ISPRIME(int NUMBER){
 	int n=2;
 	if(NUMBER<2)
-		return 0;
+		return false;
 	while(1){
 		if(n*n>NUMBER)
-			return 1;
+			return true;
 		if(NUMBER%n==0)
-			return 0;
+			return false;
 		n++;
 	}
-	return -1;
 }
 
 

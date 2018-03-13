@@ -106,7 +106,7 @@ void SWAPINT(int *a,int *b){
 }
 
 
-int SAMEDIGITS(int NUMBER1,int NUMBER2){
+bool SAMEDIGITS(int NUMBER1,int NUMBER2){
 	int lang1,lang2;
 	int* data1,*data2;
 	int i,j;
@@ -114,7 +114,7 @@ int SAMEDIGITS(int NUMBER1,int NUMBER2){
 	lang1=GETLENGTH(NUMBER1);
 	lang2=GETLENGTH(NUMBER2);
 	if(lang1!=lang2)
-		return 0;
+		return false;
 	data1=WRITEINARRAY(NUMBER1);
 	data2=WRITEINARRAY(NUMBER2);
 	for(check=0,i=0;i<lang1;i++){
@@ -129,14 +129,14 @@ int SAMEDIGITS(int NUMBER1,int NUMBER2){
 	free(data1);
 	free(data2);
 	if(check==lang1)
-		return 1;
+		return true;
 	else
-		return 0;
+		return false;
 }
 
 
 
-int ISBINARYPALINDROM(int ZAHL){
+bool ISBINARYPALINDROM(int ZAHL){
 	int BINARY;
 	int lang;
 	int used;
@@ -144,7 +144,7 @@ int ISBINARYPALINDROM(int ZAHL){
 	int i;
 	lang=100000;
 	if(ZAHL==0)
-		return 0;
+		return false;
 	data = new int[lang]();
 	//TODO: Catch new allocation failure
 	data[0]=ZAHL;
@@ -169,9 +169,9 @@ int ISBINARYPALINDROM(int ZAHL){
 			BINARY++;
 	}
 	if(BINARY==used/2)
-		return 1;
+		return true;
 	else
-		return 0;
+		return false;
 }
 
 
@@ -251,15 +251,16 @@ int GETLENGTH(int NUMBER){
 
 
 
-int ISPALINDROM(int NUMBER){
+bool ISPALINDROM(int NUMBER){
 	int length;
 	int palindrom;
 	int tmp;
 	int i;
 	int *look;
+	bool result;
 	length=GETLENGTH(NUMBER);
 	if(length==1)
-		return 1;
+		return true;
 	look = new int[length];
 	//TODO: Catch new allocation failure
 	look[0]=NUMBER;
@@ -274,11 +275,11 @@ int ISPALINDROM(int NUMBER){
 		}
 	}
 	if(length/2==palindrom)
-		palindrom=1;
+		result=true;
 	else
-		palindrom=0;
+		result=false;
 	free(look);
-	return palindrom;
+	return result;
 }
 
 int ISPANDIGITAL(int INPUT){
@@ -309,11 +310,11 @@ int ISPANDIGITAL(int INPUT){
 	return res;
 }
 
-int CanReverse(int number){
+bool CanReverse(int number){
 	if(number%10==0)
-		return 0;
+		return false;
 	else
-		return 1;
+		return true;
 }
 
 int reverse(int number){
@@ -325,24 +326,24 @@ int reverse(int number){
    return reversed;
 }
 
-int OnlyOddDigits(int number){
+bool OnlyOddDigits(int number){
     while (number > 0) {
-        if ((number % 10) % 2 == 0) return 0;
+        if ((number % 10) % 2 == 0) return false;
         number /= 10;
     }
-    return 1;
+    return true;
 }
 
 
-int IsReversible(int number){
+bool IsReversible(int number){
 	if(!CanReverse(number))
-		return 0;
+		return false;
 
 	number+=reverse(number);
 	if(OnlyOddDigits(number))
-		return 1;
+		return true;
 	else
-		return 0;
+		return false;
 }
 
 
@@ -350,7 +351,7 @@ int IsReversible(int number){
 
 
 
-int abundant(int n){
+bool abundant(int n){
 	int i,divisorsum;
 
 	for(i=n-1,divisorsum=0;i>0;i--){
@@ -358,9 +359,9 @@ int abundant(int n){
 			divisorsum+=i;
 	}
 	if(divisorsum>n)
-		return 1;
+		return true;
 	else
-		return 0;
+		return false;
 }
 
 
