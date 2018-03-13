@@ -45,6 +45,7 @@ void euler52();
 void euler53();
 void euler56();
 void euler67();
+void euler92();
 void euler97();
 void euler145();
 void euler187();

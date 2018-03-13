@@ -25,6 +25,7 @@ int CanReverse(int number);
 int IsReversible(int number);
 int OnlyOddDigits(int number);
 int abundant(int n);
+int QuadratSumme(int number); //Addiert die Quadrate der Ziffern der Ausgangszahl
 
 
 

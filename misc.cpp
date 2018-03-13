@@ -366,6 +366,15 @@ int abundant(int n){
 
 
 
+int QuadratSumme(int number){
+	int summe, lang, i;
+	lang=GETLENGTH(number);
+	for(i=0,summe=0;i<lang;i++){
+		summe+= (number%10)*(number%10);
+		number/=10;
+	}
+	return summe;
 
+}
 
 
