@@ -9,6 +9,7 @@
 #include "misc.h"
 #include "eulersolutions.h"
 #include <iostream>
+#include <vector>
 
 
 using namespace std;
@@ -1607,6 +1608,67 @@ How many composite integers, n < 10^8, have precisely two, not necessarily disti
 	
 	
 }
+
+
+
+
+
+
+void euler357(){
+/*
+	Consider the divisors of 30: 1,2,3,5,6,10,15,30.
+	It can be seen that for every divisor d of 30, d+30/d is prime.
+
+	Find the sum of all positive integers n not exceeding 100 000 000
+	such that for every divisor d of n, d+n/d is prime.
+*/
+	unsigned long long summe, grenze;
+	vector<bool> sieve;
+	grenze=100000000;
+	initprimesieve(grenze,sieve);
+	// 1 is the only odd number where i+1 is prime
+	summe=1;
+    // scan only even numbers >= 2 of the form 2+4k
+	for (unsigned int n = 2; n <= grenze; n += 4){
+		if (!sieve[n+1])       // checke für teiler 1
+			continue;
+		if (!sieve[2 + n/2]) //und für Teiler 2,
+			continue;
+		bool valid = true;
+		for (unsigned teiler = 3; teiler*teiler <= n; teiler++){ //und den Rest
+			if (n % teiler != 0)
+				continue;
+			if (!sieve[teiler + n / teiler]){
+				valid = false;
+	            break;
+			}
+		}
+		if (valid)
+			summe += n;
+	}
+	cout << summe << endl;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

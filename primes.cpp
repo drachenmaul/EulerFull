@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
+#include<iostream>
 #include "primes.h"
 
 bool TRUNCATABLE(int prim){
@@ -61,7 +62,7 @@ void MAKEPRIMELISTSIEVE(){
 			fprintf(datei,"%i\n",i);
 	}
 	fclose(datei);
-	free(prime);
+	delete prime;
 	printf("Primliste erstellt, enthaelt alle Primzahlen bis 100 Millionen.\n");
 }
 
@@ -91,7 +92,7 @@ int* SIZEDPRIMEARRAY(int n){
 
 
 
-int* PRIMEARRAY(){
+int* PRIMEARRAY(){ //Contains Primes up to 100000000, those are 5761455
 	int SIZE=5761455;
 	int* prime;
 	FILE* datei;
@@ -328,3 +329,25 @@ unsigned GETPREVPRIME(int NUMBER){
 	}
 	return prime;
 }
+
+
+void initprimesieve(int size, std::vector<bool> &liste){
+	liste.resize(size+1,true);
+	liste[0]=false;
+	liste[1]=false;
+	for(int i=2;i<=size;i++){
+		if(liste[i]==true){
+			for(int j=2;j*i<=size;j++){
+				liste[i*j]=false;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+

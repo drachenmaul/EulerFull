@@ -1,6 +1,9 @@
 #ifndef PRIMES_H
 #define PRIMES_H
 
+
+#include<vector>
+
 bool TRUNCATABLE(int prim);
 unsigned GETPRIME(int NUMBER);
 unsigned GETNEXTPRIME(int NUMBER);
@@ -14,6 +17,7 @@ bool ISPRIME(int NUMBER);
 int* PRIMEARRAY();
 int* SIZEDPRIMEARRAY(int n);
 void MAKEPRIMELISTSIEVE();
+void initprimesieve(int size, std::vector<bool> &liste);
 
 
 
