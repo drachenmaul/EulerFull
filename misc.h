@@ -26,6 +26,7 @@ bool IsReversible(int number);
 bool OnlyOddDigits(int number);
 bool abundant(int n);
 int QuadratSumme(int number); //Addiert die Quadrate der Ziffern der Ausgangszahl
+bool isbouncy(int number);
 
 
 

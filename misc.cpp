@@ -379,3 +379,49 @@ int QuadratSumme(int number){
 }
 
 
+
+bool isbouncy(int number){
+	if(number<101)
+		return false;
+	bool ascending=false;
+	bool descending=false;
+	int length=GETLENGTH(number);
+	int curr, last;
+	curr=number%10;
+	for(int i=0;i<length-1;i++){
+		last=curr;
+		number/=10;
+		curr=number%10;
+		if(curr<last)
+			ascending=true;
+		if(curr>last)
+			descending=true;
+	}
+
+
+
+
+
+	if(ascending && descending)
+		return true;
+	else
+		return false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

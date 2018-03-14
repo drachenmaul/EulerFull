@@ -1564,8 +1564,15 @@ Find the least number for which the proportion of bouncy numbers is exactly 99%.
 	 */
 
 
+	int i, bouncy;
 
 
+
+	for(i=101, bouncy=0;bouncy*100!=99*(i-1);i++){ // i-1, da die Bedingung das verhältnis vor inkrementierung checken muss
+		if(isbouncy(i))
+			bouncy++;
+	}
+	cout << i-1 << endl; //i-1 entfernt die letzte inkrementierung wieder
 
 
 
