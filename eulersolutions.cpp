@@ -1662,7 +1662,48 @@ How many composite integers, n < 10^8, have precisely two, not necessarily disti
 
 
 
+void euler206(){
+/* Find the unique positive integer whose square has the form 1_2_3_4_5_6_7_8_9_0,
+where each “_” is a single digit. */
 
+	long long i, j;
+	long long val;
+	int counter;
+	int ziffer[]= {0,9,8,7,6,5,4,3,2,1};
+
+	for(i=1e9;;i++){
+		val=i*i;
+		for(counter=0, j=0;j<10;j++){
+			if(val % 10 ==ziffer[j]){
+				counter++;
+				val/=100;
+			}else
+				break;
+				}
+		if(counter==10)
+			break;
+
+
+
+
+	}
+
+
+
+	cout << i << endl;
+	cout << i*i << endl;
+
+
+
+
+
+
+
+
+
+
+
+}
 
 
 void euler357(){
