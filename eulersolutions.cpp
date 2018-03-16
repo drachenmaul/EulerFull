@@ -1682,27 +1682,8 @@ where each “_” is a single digit. */
 				}
 		if(counter==10)
 			break;
-
-
-
-
 	}
-
-
-
 	cout << i << endl;
-	cout << i*i << endl;
-
-
-
-
-
-
-
-
-
-
-
 }
 
 
