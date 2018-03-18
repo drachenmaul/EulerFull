@@ -38,6 +38,7 @@ void euler37();
 void euler39();
 void euler41();
 void euler42();
+void euler44();
 void euler45(); /*LEVEL UP to 1*/
 void euler46();
 void euler48();

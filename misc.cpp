@@ -414,8 +414,8 @@ bool isbouncy(int number){
 
 
 int Lettercount(int number){
-	if (number > 1000){
-		cout << "Funktion Lettercount funktioniert nur bis einschließlich 1000" << endl;
+	if (number > 1000 || number < -1000){
+		cout << "Funktion Lettercount funktioniert nur bis einschließlich +-1000" << endl;
 		return -1;
 	}
 	if(number == 1000)
@@ -467,7 +467,10 @@ int Lettercount(int number){
 
 
 
-
+bool ispentagonal(int number){
+	double penTest = (sqrt(1 + 24 * number) + 1.0) / 6.0;
+	return penTest == ((int)penTest);
+}
 
 
 
