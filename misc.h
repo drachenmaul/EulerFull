@@ -27,6 +27,7 @@ bool OnlyOddDigits(int number);
 bool abundant(int n);
 int QuadratSumme(int number); //Addiert die Quadrate der Ziffern der Ausgangszahl
 bool isbouncy(int number);
+int Lettercount(int number); //Gibt Buchstabenanzahl für ausgeschriebenezahl zurück; 342 (three hundred and forty two) gibt 23 zurück
 
 
 
