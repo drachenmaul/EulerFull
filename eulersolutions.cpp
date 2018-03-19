@@ -10,7 +10,7 @@
 #include "eulersolutions.h"
 #include <iostream>
 #include <vector>
-
+#include <climits>
 
 using namespace std;
 
@@ -1529,6 +1529,68 @@ void euler67(){
 	
 	
 }
+
+
+
+void euler87(){
+	/*
+
+The smallest number expressible as the sum of a prime square, prime cube, and prime fourth power is 28. In fact, there are exactly four numbers below fifty that can be expressed in such a way:
+
+28 = 2^2 + 2^3 + 2^4
+33 = 3^2 + 2^3 + 2^4
+49 = 5^2 + 2^3 + 2^4
+47 = 2^2 + 3^3 + 2^4
+
+How many numbers below fifty million can be expressed as the sum of a prime square, prime cube, and prime fourth power?
+	 */
+	int i, j, k;
+	vector<bool> numbers(50000000, false);
+	int *prime = SIZEDPRIMEARRAY(950);
+	long long num;
+	for(i=0;i<950;i++){
+		num=0;
+		for(j=0;j<950;j++){
+			for(k=0;k<950;k++){
+				num=(long long)prime[i]*prime[i];
+				num+=(long long)prime[j]*prime[j]*prime[j];
+				num+=(long long)prime[k]*prime[k]*prime[k]*prime[k];
+				if(num<50000000)
+					numbers[num]=true;
+				else break;
+			}
+		}
+	}
+
+
+
+	for(i=0,num=0;i<50000000;i++)
+		if(numbers[i]==true){
+			num++;
+		}
+
+
+	cout << num << endl;
+	cout << "1097343" << endl;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

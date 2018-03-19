@@ -13,7 +13,7 @@ using namespace std;
 int main(){
 	double start,stopp;
 	start=clock();
-	euler44();
+	euler87();
 	stopp=clock();
 	cout << (stopp-start)/CLOCKS_PER_SEC << "s" << endl;
 	return 0;
