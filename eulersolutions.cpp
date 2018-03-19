@@ -1571,7 +1571,6 @@ How many numbers below fifty million can be expressed as the sum of a prime squa
 
 
 	cout << num << endl;
-	cout << "1097343" << endl;
 
 }
 
