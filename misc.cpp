@@ -423,7 +423,7 @@ int Lettercount(int number){
 	int bis19[] = {4, 3, 3, 5, 4, 4, 3, 5, 5, 4, 3, 6, 6, 8, 8, 7, 7, 9, 8, 8}; 	//Länge der Worte zero - nineteen
 	int zehner[] = {6, 6, 5, 5, 5, 7, 6, 6};										//Länge von twenty - ninety
 	int hu = 7;																		//Länge von "hundred"
-	int und =3;																		//Länge von und
+	int und = 3;																		//Länge von und
 	int sum=0;																		//rückgabe
 	if(number < 0){		//wenn zahl negative füge ein
 		sum+=5;			//"minus" hinzu
@@ -440,7 +440,7 @@ int Lettercount(int number){
 		tmp/=100;			//Finde hunderter Stelle raus
 		sum+=bis19[tmp];	//Füge Hunderterzahl hinzu
 		sum+=hu;			//Füge "hundred" hinzu
-		if(number % 100 ==0)//Füge "and" hinzu wenn kein gerader hunderter
+		if(number % 100 == 0)//Füge "and" hinzu wenn kein gerader hunderter
 			return sum;		//Wenn glatter hunderter sind wir fertig
 		sum+=und;			//Füge "and" hinzu
 		number-=tmp*100;	//entferne Hunderterstelle

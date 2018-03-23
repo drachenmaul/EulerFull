@@ -4,6 +4,8 @@
 #include<iostream>
 #include "primes.h"
 
+using namespace std;
+
 bool TRUNCATABLE(int prim){
 	int i,tmp,l;
 	for(l=0,tmp=prim;tmp!=0;tmp/=10,l++); //bestimme l�nge der zahl
@@ -63,7 +65,7 @@ void MAKEPRIMELISTSIEVE(){
 	}
 	fclose(datei);
 	delete prime;
-	printf("Primliste erstellt, enthaelt alle Primzahlen bis 100 Millionen.\n");
+	cout << "Primliste erstellt, enthaelt alle Primzahlen bis 100 Millionen." << endl;
 }
 
 
@@ -76,10 +78,10 @@ int* SIZEDPRIMEARRAY(int n){
 	prime = new int[SIZE];
 	//TODO: Catch new allocation failure
 	if((datei=fopen("primelist.txt","r"))==NULL){
-		printf("Keine Primzahlenliste gefunden, wird erstellt, einen Moment bitte.\n");
+		cout << "Keine Primzahlenliste gefunden, wird erstellt, einen Moment bitte." << endl;;
 		MAKEPRIMELISTSIEVE();
 		if((datei=fopen("primelist.txt","r"))==NULL){
-			printf("Das wars ich bin tot!\n");
+			cout << "Das wars ich bin tot." << endl;
 			return NULL;
 		}
 	}
@@ -100,10 +102,10 @@ int* PRIMEARRAY(){ //Contains Primes up to 100000000, those are 5761455
 	prime = new int[SIZE];
 	//TODO: Catch new allocation failure
 	if((datei=fopen("primelist.txt","r"))==NULL){
-		printf("Keine Primzahlenliste gefunden, wird erstellt, einen Moment bitte.\n");
+		cout << "Keine Primzahlenliste gefunden, wird erstellt, einen Moment bitte." << endl;
 		MAKEPRIMELISTSIEVE();
 		if((datei=fopen("primelist.txt","r"))==NULL){
-			printf("Das wars ich bin tot!\n");
+			cout << "Das wars ich bin tot" << endl;
 			return NULL;
 		}
 	}
@@ -125,7 +127,7 @@ void MAKEPRIMELIST(){
 		fprintf(datei,"%i\n",prime);
 	}
 	fclose(datei);
-	printf("Primliste erstellt, enthaelt alle Primzahlen bis 100 Millionen.\n");
+	cout << "Primliste erstellt, enthaelt alle Primzahlen bis 100 Millionen." << endl;
 }
 
 
@@ -134,17 +136,17 @@ int GETPRIMELIST(int NUMBER){
 	int i;
 	int prime;
 	if((datei=fopen("primelist.txt","r"))==NULL){
-		printf("Keine Primzahlenliste gefunden, wird erstellt, das wird aber etwas dauern.\n");
+		cout << "Keine Primzahlenliste gefunden, wird erstellt, das wird aber etwas dauern." << endl;
 		MAKEPRIMELIST();
 		if((datei=fopen("primelist.txt","r"))==NULL){
-			printf("Das wars ich bin tot!\n");
+			cout << "Das wars ich bin tot!" << endl;
 			return -1;
 		}
 	}
 	i=0;
 	while(i!=NUMBER){
 		if((fscanf(datei,"%i",&prime))==EOF){
-			printf("primelist.txt exceeded!\n");
+			cout << "primelist.txt exceeded!" << endl;
 			return -1;
 		}
 		i++;

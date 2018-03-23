@@ -10,7 +10,6 @@
 #include "eulersolutions.h"
 #include <iostream>
 #include <vector>
-#include <climits>
 
 using namespace std;
 
@@ -1193,7 +1192,7 @@ By converting each letter in a word to a number corresponding to its alphabetica
 	int count;
 	char word;
 	int i;
-	int wordvalue;
+	unsigned wordvalue;
 	
 	/*Idee wie folgt, ich lese aus der Datei und gucke ob mein eingelesener Wert zwischen A und Z liegt, falls ich auf
 	 * ein Komma treffe, schaue ich nach ob der Wortwert eine Triangle-Number ist, wenn ja erh�he ich den Z�hler*/
@@ -1530,7 +1529,58 @@ void euler67(){
 	
 }
 
+void euler75(){
+	/*
 
+It turns out that 12 cm is the smallest length of wire that can be bent to form an integer sided right angle triangle in exactly one way, but there are many more examples.
+
+12 cm: (3,4,5)
+24 cm: (6,8,10)
+30 cm: (5,12,13)
+36 cm: (9,12,15)
+40 cm: (8,15,17)
+48 cm: (12,16,20)
+
+In contrast, some lengths of wire, like 20 cm, cannot be bent to form an integer sided right angle triangle, and other lengths allow more than one solution to be found; for example, using 120 cm it is possible to form exactly three different integer sided right angle triangles.
+
+120 cm: (30,40,50), (20,48,52), (24,45,51)
+
+Given that L is the length of the wire, for how many values of L ≤ 1,500,000 can exactly one integer sided right angle triangle be formed?
+	 */
+
+	vector <int> zahlen(1500001,0);
+	vector<long long> square(1500001);
+	for( long long i = 0; i<=1500000;i++)
+		square[i]=i*i;
+
+	int a,b,i,res;
+	int limit=1500000;
+	for(a=1;a<limit;a++){
+		cout << "a increased to " << a << endl;
+		for(b=a;b<limit-a-1;b++){
+			for(i=sqrt(square[a]+square[b]-1);i<limit-a-b;i++){
+				if(square[a]+square[b]==square[i]){
+					zahlen[a+b+i]++;
+					break;
+				}
+				else if(square[a]+square[b]<square[i])
+					break;
+			}
+
+		}
+	}
+
+	for(res=0,i=0;i<1500001;i++)
+		if(zahlen[i]==1){
+			res++;
+		}
+
+
+	cout << res << endl;
+
+
+
+}
 
 void euler87(){
 	/*
@@ -1715,7 +1765,44 @@ Find the least number for which the proportion of bouncy numbers is exactly 99%.
 
 
 
+void euler122(){
+	/*
 
+The most naive way of computing n15 requires fourteen multiplications:
+
+n × n × ... × n = n15
+
+But using a "binary" method you can compute it in six multiplications:
+
+n × n = n2
+n2 × n2 = n4
+n4 × n4 = n8
+n8 × n4 = n12
+n12 × n2 = n14
+n14 × n = n15
+
+However it is yet possible to compute it in only five multiplications:
+
+n × n = n2
+n2 × n = n3
+n3 × n3 = n6
+n6 × n6 = n12
+n12 × n3 = n15
+
+We shall define m(k) to be the minimum number of multiplications to compute nk; for example m(15) = 5.
+
+For 1 ≤ k ≤ 200, find ∑ m(k).
+	 *
+	 */
+
+
+
+
+
+
+
+
+}
 
 
 

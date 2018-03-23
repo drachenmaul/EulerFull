@@ -7,13 +7,13 @@ using namespace std;
 
 
 
-//Next Problems:  47, 49, 58, 63, 81, 95, 113, 407, 437
+//Next Problems:  47, 49, 58, 63, 81, 95, 113, 122, 407, 437
 
 
 int main(){
 	double start,stopp;
 	start=clock();
-	euler87();
+	euler75();
 	stopp=clock();
 	cout << (stopp-start)/CLOCKS_PER_SEC << "s" << endl;
 	return 0;
@@ -26,11 +26,6 @@ prob 63
 The 5-digit number, 16807=75, is also a fifth power. Similarly, the 9-digit number, 134217728=89, is a ninth power.
 
 How many n-digit positive integers exist which are also an nth power?
- *
- *
- *
- *
- *
  *
  * */
 
