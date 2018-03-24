@@ -1575,7 +1575,7 @@ Given that L is the length of the wire, for how many values of L ≤ 1,500,000 c
 			res++;
 		}
 
-
+	//TODO: THIS ONE TAKE AN HOUR+
 	cout << res << endl;
 
 
