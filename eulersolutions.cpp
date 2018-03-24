@@ -1556,9 +1556,8 @@ Given that L is the length of the wire, for how many values of L ≤ 1,500,000 c
 	int a,b,i,res;
 	int limit=1500000;
 	for(a=1;a<limit;a++){
-		cout << "a increased to " << a << endl;
 		for(b=a;b<limit-a-1;b++){
-			for(i=sqrt(square[a]+square[b]-1);i<limit-a-b;i++){
+			for(i=sqrt(square[a]+square[b]);i<limit-a-b;i++){
 				if(square[a]+square[b]==square[i]){
 					zahlen[a+b+i]++;
 					break;

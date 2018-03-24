@@ -333,11 +333,11 @@ unsigned GETPREVPRIME(int NUMBER){
 }
 
 
-void initprimesieve(int size, std::vector<bool> &liste){
+void initprimesieve(long long size, std::vector<bool> &liste){
 	liste.resize(size+1,true);
 	liste[0]=false;
 	liste[1]=false;
-	for(int i=2;i<=size;i++){
+	for(long long i=2;i*i<=size;i++){
 		if(liste[i]==true){
 			for(int j=2;j*i<=size;j++){
 				liste[i*j]=false;

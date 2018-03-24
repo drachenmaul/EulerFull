@@ -17,7 +17,7 @@ bool ISPRIME(int NUMBER);
 int* PRIMEARRAY();
 int* SIZEDPRIMEARRAY(int n);
 void MAKEPRIMELISTSIEVE();
-void initprimesieve(int size, std::vector<bool> &liste);
+void initprimesieve(long long size, std::vector<bool> &liste);
 
 
 
