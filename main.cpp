@@ -7,13 +7,13 @@ using namespace std;
 
 
 
-//Next Problems:  47, 49, 58, 63, 81, 95, 113, 122, 407, 437
+//Next Problems:  47, 49, 63, 81, 95, 113, 122, 407, 437
 
 
 int main(){
 	double start,stopp;
 	start=clock();
-	euler75();
+	euler58();
 	stopp=clock();
 	cout << (stopp-start)/CLOCKS_PER_SEC << "s" << endl;
 	return 0;
