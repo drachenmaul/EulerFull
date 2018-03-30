@@ -1320,6 +1320,50 @@ void euler46(){
 	printf("Erster Fehlschlag bei %d\n",test-2); //test-2 da letzte inkrementierung der for schleife r�ckg�ngig gemachtw erden muss
 }
 
+
+void euler47(){
+	/*
+
+The first two consecutive numbers to have two distinct prime factors are:
+
+14 = 2 × 7
+15 = 3 × 5
+
+The first three consecutive numbers to have three distinct prime factors are:
+
+644 = 2² × 7 × 23
+645 = 3 × 5 × 43
+646 = 2 × 17 × 19.
+
+Find the first four consecutive integers to have four distinct prime factors each. What is the first of these numbers?
+	 *
+	 */
+	int i;
+	for(i = 0 ; DISTINCTPRIMEFACTOR(i) !=4 || DISTINCTPRIMEFACTOR(i+1) !=4 || DISTINCTPRIMEFACTOR(i+2) !=4 || DISTINCTPRIMEFACTOR(i+3) !=4; i++);
+	cout << i << endl;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
 void euler48(){
 	/*Find the last ten digits of the series, 1^1 + 2^2 + 3^3 + ... + 1000^1000.*/
 	BIGINT a,b;

@@ -221,7 +221,26 @@ int PRIMEFACTOR(unsigned long long NUMBER){
 	return count;
 }
 
+int DISTINCTPRIMEFACTOR(unsigned long long NUMBER){
+	unsigned long long prev=2;
+	int count=0;
+	unsigned long long lastfactor=0;
+	while(prev<=NUMBER){
+		if(NUMBER%prev==0){
+			NUMBER/=prev;
+			if(lastfactor!=prev){
+				count++;
+				lastfactor=prev;
+			}
+		}
+		else{
+			prev=GETNEXTPRIME(prev);
+		}
 
+	}
+	return count;
+
+}
 
 int PRIMENUMBER(unsigned long long PRIME){
 	unsigned long long number;
