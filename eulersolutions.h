@@ -39,9 +39,9 @@ void euler39();
 void euler41();
 void euler42();
 void euler44();	//LEVEL UP to 2
-void euler45(); /*LEVEL UP to 1*/
+void euler45(); //LEVEL UP to 1
 void euler46();
-void euler47();//WIP
+void euler47();
 void euler48();
 void euler50();
 void euler52();

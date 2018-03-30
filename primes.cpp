@@ -221,22 +221,18 @@ int PRIMEFACTOR(unsigned long long NUMBER){
 	return count;
 }
 
-int DISTINCTPRIMEFACTOR(unsigned long long NUMBER){
-	unsigned long long prev=2;
+int DISTINCTPRIMEFACTOR( long long NUMBER, vector<int> &primes ){
+
+	unsigned n = primes.size();
+
 	int count=0;
-	unsigned long long lastfactor=0;
-	while(prev<=NUMBER){
-		if(NUMBER%prev==0){
-			NUMBER/=prev;
-			if(lastfactor!=prev){
-				count++;
-				lastfactor=prev;
+	for(unsigned i = 0; i < n && primes[i]<=NUMBER ;i++){
+		if(NUMBER%primes[i]==0){
+			count++;
+			while(NUMBER%primes[i]==0){
+				NUMBER/=primes[i];
 			}
 		}
-		else{
-			prev=GETNEXTPRIME(prev);
-		}
-
 	}
 	return count;
 
@@ -297,27 +293,23 @@ unsigned GETPRIME(int NUMBER){
 
 
 unsigned GETNEXTPRIME(int NUMBER){
-	int x=NUMBER+1;
-	int n=2;
-	int k=0;
-	int prime=3;
+	unsigned x=NUMBER+1;
+	unsigned n=2;
 	if(NUMBER==1)
 		return 2;
-	while(k!=1){
+	while(1){
 		if(x%n==0){
 			x++;
 			n=2;
 		}
 		else {
 			if(n*n>x){
-				k++;
-				prime=x;
+				return x;
 			}
 			else
 				n++;
 		}
 	}
-	return prime;
 }
 
 
@@ -366,7 +358,20 @@ void initprimesieve(long long size, std::vector<bool> &liste){
 }
 
 
-
+void initprimelist(long long maxprime, std::vector<int> &liste){
+	std::vector<bool> primes;
+	initprimesieve(maxprime,primes);
+	int i, j, n;
+	for( i=0, n=0 ; i <= maxprime ; i++){
+		if(primes[i])
+			n++;
+	}
+	liste.resize(n);
+	for( i=0, j=0 ; i<=maxprime ; i++){
+		if(primes[i])
+			liste[j++]=i;
+	}
+}
 
 
 

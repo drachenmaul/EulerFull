@@ -6,7 +6,7 @@ using namespace std;
 
 
 
-//Next Problems:  47, 49, 63, 81, 95, 113, 122, 407, 437
+//Next Problems:  49, 63, 81, 95, 113, 122, 407, 437
 
 
 int main(){

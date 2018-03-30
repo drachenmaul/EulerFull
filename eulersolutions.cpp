@@ -1338,28 +1338,24 @@ The first three consecutive numbers to have three distinct prime factors are:
 Find the first four consecutive integers to have four distinct prime factors each. What is the first of these numbers?
 	 *
 	 */
-	int i;
-	for(i = 0 ; DISTINCTPRIMEFACTOR(i) !=4 || DISTINCTPRIMEFACTOR(i+1) !=4 || DISTINCTPRIMEFACTOR(i+2) !=4 || DISTINCTPRIMEFACTOR(i+3) !=4; i++);
-	cout << i << endl;
+
+
+	vector<int> primes;
+	initprimelist(150000,primes);
+
+	int i, n;
+	for( i = 0 , n = 0 ; n < 4 ; i++){
+		if(DISTINCTPRIMEFACTOR(i,primes)==4)
+			n++;
+		else
+			n=0;
+	}
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	cout << i-4 << endl;
 }
 
 
