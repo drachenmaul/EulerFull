@@ -29,6 +29,8 @@ int QuadratSumme(int number); //Addiert die Quadrate der Ziffern der Ausgangszah
 bool isbouncy(int number);
 int Lettercount(int number); //Gibt Buchstabenanzahl für ausgeschriebenezahl zurück; 342 (three hundred and forty two) gibt 23 zurück
 bool ispentagonal(int number);
+int GCD(int a, int b);
+unsigned DigitSum(unsigned number);
 
 
 

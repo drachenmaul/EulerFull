@@ -1803,7 +1803,37 @@ Find the least number for which the proportion of bouncy numbers is exactly 99%.
 
 }
 
+void euler119(){
+	/*
 
+The number 512 is interesting because it is equal to the sum of its digits raised to some power: 5 + 1 + 2 = 8, and 83 = 512. Another example of a number with this property is 614656 = 284.
+
+We shall define an to be the nth term of this sequence and insist that a number must contain at least two digits to have a sum.
+
+You are given that a2 = 512 and a10 = 614656.
+
+Find a30.
+	 */
+
+	long long i, a, n, quers, power;
+	for(i=11,a=0;a<30;i++){
+		quers=DigitSum(i);
+		for(n=1;quers!=1;n++){
+			power=pow(quers,n);
+			if(power==i){
+				a++;
+				cout << a << " Eintrag ist " << i << " und entspricht " << quers << " hoch " << n << endl;
+			}else if(power>i)
+				break;
+		}
+	}
+
+
+	//REALLY INEFFICIENT
+
+
+
+}
 
 void euler122(){
 	/*

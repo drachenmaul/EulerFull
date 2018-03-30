@@ -1,9 +1,9 @@
 #ifndef FIBO_H
 #define FIBO_H
 
-int GETFIBO(int NUMMER);
-int GETNEXTFIBO(int NUMMER);
-int GETPREVFIBO(int NUMMER);
+unsigned GETFIBO(unsigned NUMMER);
+unsigned GETNEXTFIBO(int unsigned);
+unsigned GETPREVFIBO(unsigned NUMMER);
 
 
 

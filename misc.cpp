@@ -473,6 +473,35 @@ bool ispentagonal(int number){
 }
 
 
+int GCD(int a, int b){
+	while( a != 0 && b != 0){
+		if(a < b)
+			b%=a;
+		else
+			a%=b;
+	}
+	if(a==0)
+		return b;
+	else
+		return a;
+}
+
+
+unsigned DigitSum(unsigned number){
+	unsigned sum=0;
+	unsigned length=GETLENGTH(number);
+	for(unsigned i=0;i<length;i++){
+		sum+=number%10;
+		number/=10;
+	}
+
+	return sum;
+}
+
+
+
+
+
 
 
 
