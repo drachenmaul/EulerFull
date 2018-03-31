@@ -309,7 +309,7 @@ int ISPANDIGITAL(int INPUT){
 		res=1;
 	else
 		res=0;
-	free(num);
+	delete[] num;
 	return res;
 }
 

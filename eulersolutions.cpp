@@ -274,7 +274,7 @@ Find the sum of all the primes below two million.*/
 	int x=3;
 	int k=0;
 	int c=0;
-	int result=2;
+	long long result=2;
 	/*Primzahlen ausrechnen und aufaddieren, k�nnte k�rzer sein
 	 * unter verwendung meiner sp�ter Entstandenen Bibleothek*/
 	
@@ -300,7 +300,7 @@ Find the sum of all the primes below two million.*/
 			}
 	}
 
-	printf("%i\n",result);
+	printf("%lli\n",result);
 	
 	
 }
@@ -1941,8 +1941,6 @@ How many reversible numbers are there below one-billion (10^9)?
 	for(i=0;i<limit;i++){
 		if(IsReversible(i))
 			count++;
-		if(i%500000==0)
-			printf("%d\n",i);
 	}
 
 	printf("Es gibt %i reversible Zahlen unter %i\n",count,limit);
